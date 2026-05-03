@@ -1,66 +1,694 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-    
-    
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quick Finance Quote</title>
-    
-   <script async src="https://www.googletagmanager.com/gtag/js?id=G-SLKRSCGX5J"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    
-    // Force spoofed referrer BEFORE config
-    gtag('set', 'page_referrer', 'https://easyfinancequote.com');
-    
-    gtag('config', 'G-SLKRSCGX5J');
-</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tinde & Nemo's Watch Party 🎬✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@600;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #e8748a;
+    --blush: #f2a4b0;
+    --cream: #fff6f0;
+    --peach: #fcd5c0;
+    --deep: #a3405a;
+    --text: #5c2d3e;
+    --soft: #fde8ef;
+    --gold: #e8c07a;
+    --blue: #7ab8e8;
+    --blue-deep: #4080b0;
+  }
 
-    
-    
-    <script>
-        (function() {
-            // Clean UTM params immediately
-            const url = new URL(window.location.href);
-            const utmParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid', 'msclkid'];
-            let hasChanges = false;
-            utmParams.forEach(param => {
-                if (url.searchParams.has(param)) {
-                    url.searchParams.delete(param);
-                    hasChanges = true;
-                }
-            });
-            if (hasChanges) {
-                window.history.replaceState({}, '', url.href);
-            }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-            // Spoof document.referrer for JS trackers on this page
-            Object.defineProperty(document, 'referrer', {
-                get: function() { return 'https://easyfinancequote.com'; },
-                configurable: true
-            });
-        })();
-    </script>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #f4f4f4; }
-        .loader { border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 20px auto; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-    </style>
+  body {
+    background: var(--cream);
+    font-family: 'Lato', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .particles {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.15;
+    animation: floatUp linear infinite;
+  }
+
+  @keyframes floatUp {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.15; }
+    90% { opacity: 0.1; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(232,116,138,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(252,213,192,0.2) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 30%, rgba(232,192,122,0.1) 0%, transparent 40%);
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+    animation: fadeDown 0.8s ease forwards;
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .header .eyebrow {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    color: var(--rose);
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 700;
+    color: var(--deep);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .header h1 em {
+    font-style: italic;
+    color: var(--rose);
+  }
+
+  .header .subtitle {
+    font-size: 0.95rem;
+    color: var(--blush);
+    letter-spacing: 0.08em;
+    font-weight: 300;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px auto;
+  }
+
+  .divider span {
+    height: 1px;
+    width: 60px;
+    background: linear-gradient(to right, transparent, var(--blush));
+  }
+
+  .divider span:last-child {
+    background: linear-gradient(to left, transparent, var(--blush));
+  }
+
+  .divider .heart {
+    color: var(--rose);
+    font-size: 1rem;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+
+  .players {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 36px;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .player-card {
+    background: white;
+    border: 1.5px solid var(--peach);
+    border-radius: 20px;
+    padding: 18px 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(232,116,138,0.08);
+  }
+
+  .player-card .label {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1rem;
+    color: var(--rose);
+    margin-bottom: 8px;
+  }
+
+  .player-card input {
+    border: none;
+    border-bottom: 1.5px solid var(--peach);
+    background: transparent;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--deep);
+    text-align: center;
+    width: 100%;
+    outline: none;
+    padding: 4px 0;
+    transition: border-color 0.3s;
+  }
+
+  .player-card input:focus { border-color: var(--rose); }
+  .player-card input::placeholder { color: var(--blush); font-style: italic; font-size: 0.95rem; }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--deep);
+    text-align: center;
+    margin-bottom: 8px;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .section-hint {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--blush);
+    margin-bottom: 24px;
+    animation: fadeUp 0.8s 0.35s ease both;
+  }
+
+  .mood-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 40px;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+
+  .mood-card {
+    background: white;
+    border: 2px solid var(--peach);
+    border-radius: 18px;
+    padding: 20px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mood-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--soft), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .mood-card:hover { transform: translateY(-4px) scale(1.03); border-color: var(--rose); box-shadow: 0 8px 24px rgba(232,116,138,0.18); }
+  .mood-card:hover::before { opacity: 1; }
+
+  .mood-card .emoji {
+    font-size: 2.2rem;
+    display: block;
+    margin-bottom: 8px;
+    transition: transform 0.3s;
+  }
+
+  .mood-card:hover .emoji { transform: scale(1.15) rotate(-5deg); }
+
+  .mood-card .mood-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--deep);
+    margin-bottom: 3px;
+  }
+
+  .mood-card .mood-desc { font-size: 0.72rem; color: var(--blush); line-height: 1.4; }
+
+  .mood-card.selected-p1 { border-color: var(--rose); background: linear-gradient(135deg, #fff0f3, white); box-shadow: 0 0 0 3px rgba(232,116,138,0.2); }
+  .mood-card.selected-p2 { border-color: var(--blue); background: linear-gradient(135deg, #f0f6ff, white); box-shadow: 0 0 0 3px rgba(122,184,232,0.2); }
+  .mood-card.selected-both { border-color: var(--gold); background: linear-gradient(135deg, #fff8ee, white); box-shadow: 0 0 0 3px rgba(232,192,122,0.3); }
+
+  .selection-badge {
+    position: absolute;
+    top: 8px; right: 8px;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 2px 6px;
+    border-radius: 20px;
+    display: none;
+  }
+
+  .selected-p1 .selection-badge.p1 { display: block; background: var(--soft); color: var(--rose); }
+  .selected-p2 .selection-badge.p2 { display: block; background: #e8f2ff; color: #5a9fd4; }
+  .selected-both .selection-badge.p1,
+  .selected-both .selection-badge.p2 { display: block; }
+
+  .result-panel {
+    background: white;
+    border: 2px solid var(--peach);
+    border-radius: 24px;
+    padding: 32px 28px;
+    text-align: center;
+    margin-bottom: 40px;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeUp 0.8s 0.5s ease both;
+    box-shadow: 0 8px 32px rgba(232,116,138,0.07);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .result-panel::before {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 120px; height: 120px;
+    background: radial-gradient(circle, rgba(232,192,122,0.15), transparent);
+    border-radius: 50%;
+  }
+
+  .result-panel .waiting { font-family: 'Dancing Script', cursive; font-size: 1.3rem; color: var(--blush); }
+
+  .result-panel .result-emoji {
+    font-size: 3rem;
+    margin-bottom: 12px;
+    animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  @keyframes popIn {
+    from { transform: scale(0) rotate(-15deg); opacity: 0; }
+    to { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+
+  .result-panel .result-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--deep); margin-bottom: 8px; }
+  .result-panel .result-msg { font-size: 0.9rem; color: #8a6070; line-height: 1.6; max-width: 400px; }
+
+  /* CTA area */
+  .cta-wrap {
+    text-align: center;
+    animation: fadeUp 0.8s 0.6s ease both;
+  }
+
+  .cta-hint {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1rem;
+    color: var(--rose);
+    margin-bottom: 16px;
+  }
+
+  @keyframes gentleBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+  }
+
+  /* Main watch party button */
+  .bounce-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--rose), #d4546e);
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 20px 44px;
+    border-radius: 60px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 0 #a3405a, 0 12px 24px rgba(163,64,90,0.3);
+    transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: gentleBounce 2s ease-in-out infinite;
+  }
+
+  .bounce-btn:hover {
+    transform: translateY(4px) scale(1.02);
+    box-shadow: 0 4px 0 #a3405a, 0 8px 16px rgba(163,64,90,0.3);
+    animation: none;
+  }
+
+  .bounce-btn:active {
+    transform: translateY(8px) scale(0.98);
+    box-shadow: 0 1px 0 #a3405a, 0 4px 8px rgba(163,64,90,0.2);
+  }
+
+  .bounce-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  .bounce-btn:hover::before { left: 100%; }
+
+  .btn-sub {
+    display: block;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    opacity: 0.85;
+    margin-top: 3px;
+  }
+
+  .confetti-msg {
+    margin-top: 14px;
+    font-size: 0.82rem;
+    color: var(--blush);
+    font-style: italic;
+  }
+
+  /* Video call section */
+  .video-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 32px auto 24px;
+  }
+
+  .video-divider span {
+    height: 1px;
+    width: 50px;
+    background: linear-gradient(to right, transparent, #b8d8f0);
+  }
+
+  .video-divider span:last-child {
+    background: linear-gradient(to left, transparent, #b8d8f0);
+  }
+
+  .video-divider .star {
+    color: var(--blue);
+    font-size: 0.9rem;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .video-hint {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.05rem;
+    color: var(--blue);
+    margin-bottom: 14px;
+  }
+
+  /* Video call button */
+  .video-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--blue), #5a9fd4);
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 18px 40px;
+    border-radius: 60px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 7px 0 var(--blue-deep), 0 10px 22px rgba(64,128,176,0.28);
+    transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: gentleBounce 2.3s 0.5s ease-in-out infinite;
+  }
+
+  .video-btn:hover {
+    transform: translateY(4px) scale(1.02);
+    box-shadow: 0 3px 0 var(--blue-deep), 0 6px 14px rgba(64,128,176,0.25);
+    animation: none;
+  }
+
+  .video-btn:active {
+    transform: translateY(7px) scale(0.98);
+    box-shadow: 0 1px 0 var(--blue-deep);
+  }
+
+  .video-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  .video-btn:hover::before { left: 100%; }
+
+  .video-note {
+    margin-top: 12px;
+    font-size: 0.8rem;
+    color: #8ab8d8;
+    font-style: italic;
+  }
+
+  @media (max-width: 480px) {
+    .mood-grid { grid-template-columns: repeat(2, 1fr); }
+    .players { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
-    <h1>Redirecting to Your Finance Quote...</h1>
-    <div class="loader"></div>
-    <p>One moment while we prepare your personalized offer.</p>
-    <script>
-        // Auto-redirect after 3 seconds
-        setTimeout(function() {
-            window.location.href = 'https://jtqfa.ttrk.io/click';
-        });
-    </script>
+
+<div class="particles" id="particles"></div>
+
+<div class="container">
+
+  <div class="header">
+    <p class="eyebrow">✨ tonight is going to be magical ✨</p>
+    <h1>Tinde & <em>Nemo's</em><br>Watch Party Ritual</h1>
+    <div class="divider">
+      <span></span>
+      <span class="heart">♥</span>
+      <span></span>
+    </div>
+    <p class="subtitle">PICK YOUR MOOD • SEE YOUR VIBE • HIT PLAY TOGETHER</p>
+  </div>
+
+  <div class="players">
+    <div class="player-card">
+      <p class="label">That's you 🌙</p>
+      <input type="text" id="p1name" placeholder="your name..." maxlength="20" value="Tinde">
+    </div>
+    <div class="player-card">
+      <p class="label">That's her 🌸</p>
+      <input type="text" id="p2name" placeholder="her name..." maxlength="20" value="Nemo">
+    </div>
+  </div>
+
+  <p class="section-title">What's the Vibe Tonight?</p>
+  <p class="section-hint">You each pick one — see what happens when they combine 🌟</p>
+
+  <div class="mood-grid" id="moodGrid">
+    <div class="mood-card" data-mood="romantic" onclick="selectMood(this)">
+      <span class="emoji">💕</span>
+      <span class="selection-badge p1">TINDE</span>
+      <span class="selection-badge p2">NEMO</span>
+      <div class="mood-name">Romantic</div>
+      <div class="mood-desc">All the feels, all the warmth</div>
+    </div>
+    <div class="mood-card" data-mood="cozy" onclick="selectMood(this)">
+      <span class="emoji">🧸</span>
+      <span class="selection-badge p1">TINDE</span>
+      <span class="selection-badge p2">NEMO</span>
+      <div class="mood-name">Cozy</div>
+      <div class="mood-desc">Blankets, snacks & no plans</div>
+    </div>
+    <div class="mood-card" data-mood="adventurous" onclick="selectMood(this)">
+      <span class="emoji">🌟</span>
+      <span class="selection-badge p1">TINDE</span>
+      <span class="selection-badge p2">NEMO</span>
+      <div class="mood-name">Adventurous</div>
+      <div class="mood-desc">Ready for anything wild</div>
+    </div>
+    <div class="mood-card" data-mood="emotional" onclick="selectMood(this)">
+      <span class="emoji">🥺</span>
+      <span class="selection-badge p1">TINDE</span>
+      <span class="selection-badge p2">NEMO</span>
+      <div class="mood-name">Emotional</div>
+      <div class="mood-desc">Cries at everything, no shame</div>
+    </div>
+    <div class="mood-card" data-mood="silly" onclick="selectMood(this)">
+      <span class="emoji">🤪</span>
+      <span class="selection-badge p1">TINDE</span>
+      <span class="selection-badge p2">NEMO</span>
+      <div class="mood-name">Silly</div>
+      <div class="mood-desc">Here to laugh at everything</div>
+    </div>
+    <div class="mood-card" data-mood="dreamy" onclick="selectMood(this)">
+      <span class="emoji">🌙</span>
+      <span class="selection-badge p1">TINDE</span>
+      <span class="selection-badge p2">NEMO</span>
+      <div class="mood-name">Dreamy</div>
+      <div class="mood-desc">Floating on a soft cloud</div>
+    </div>
+  </div>
+
+  <div class="result-panel" id="resultPanel">
+    <p class="waiting">waiting for your vibes... 🌸</p>
+  </div>
+
+  <!-- CTA Buttons -->
+  <div class="cta-wrap">
+    <p class="cta-hint">Nemo, he is waiting for you! 🎬</p>
+    <a href="https://www.watchparty.me/watch/steep-swing-vanish" class="bounce-btn" target="_blank">
+      🍿 Tinde is Waiting — Jump In!
+      <span class="btn-sub">don't keep him waiting, come on → </span>
+    </a>
+    <p class="confetti-msg">ps. don't forget your snacks 🍫☕</p>
+
+    <!-- Video call divider -->
+    <div class="video-divider">
+      <span></span>
+      <span class="star">✦</span>
+      <span></span>
+    </div>
+
+    <p class="video-hint">for extra fun, see each other's faces too 🥰</p>
+    <a href="https://meet.google.com/eux-mosi-edb" class="video-btn" target="_blank">
+      📹 Join the Video Call Together!
+      <span class="btn-sub">reactions are better in real time ✨</span>
+    </a>
+    <p class="video-note">warning: you will not be able to stop smiling 😊</p>
+  </div>
+
+</div>
+
+<script>
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 22; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = Math.random() * 20 + 8;
+    p.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random()*100}%;
+      animation-duration:${Math.random()*12+8}s;
+      animation-delay:${Math.random()*10}s;
+      background:${['#f2a4b0','#fcd5c0','#e8c07a','#e8748a'][Math.floor(Math.random()*4)]};
+      border-radius:${Math.random()>0.5?'50%':'4px'};
+    `;
+    container.appendChild(p);
+  }
+
+  let p1Mood = null, p2Mood = null;
+  let turn = 1;
+
+  const results = {
+    romantic_romantic: { emoji:'💞', title:'Pure Romance', msg:'Both of you are in full lovey-dovey mode tonight. Expect stolen glances at the screen and even more at each other. This one\'s going to be ridiculously sweet.' },
+    romantic_cozy: { emoji:'🕯️', title:'Snuggle Cinema', msg:'One of you wants warmth, one wants butterflies — together that\'s the perfect slow evening. Dim the lights and let the night unfold.' },
+    romantic_adventurous: { emoji:'🌹', title:'Daring Romance', msg:'One heart is soaring, one is melting. You\'ll probably pause the movie to talk about big dreams. That\'s the best kind of watch party.' },
+    romantic_emotional: { emoji:'😭💕', title:'Beautiful Disaster', msg:'Someone is definitely going to cry. Probably both of you. And it\'s going to feel absolutely wonderful.' },
+    romantic_silly: { emoji:'😂❤️', title:'Laughing Lovers', msg:'The perfect combo — one of you swooning, one of you cracking jokes. You\'ll ruin each other\'s serious moments and love every second.' },
+    romantic_dreamy: { emoji:'🌌💕', title:'Stardust & Sighs', msg:'Soft. Floaty. Warm. You two are going to drift through this movie on a cloud together. Absolutely magical.' },
+    cozy_cozy: { emoji:'🧸🧸', title:'Ultimate Coziness', msg:'Two blanket goblins, two mugs of something warm, zero obligations. The world outside doesn\'t exist tonight.' },
+    cozy_adventurous: { emoji:'🏕️', title:'Cozy Explorer', msg:'One of you wants chaos, one wants calm — you\'ll end up finding the most comfortable adventure. Best of both worlds.' },
+    cozy_emotional: { emoji:'🤗', title:'Big Warm Hug', msg:'Tonight feels like a long hug through the screen. Take your time, feel everything, and be soft with each other.' },
+    cozy_silly: { emoji:'🍕😂', title:'Chaotic Cozy', msg:'Snacks, laughter, chaos, warmth. The vibe is completely unhinged in the most wholesome way possible.' },
+    cozy_dreamy: { emoji:'☁️', title:'Gentle Haze', msg:'Soft voices, soft vibes. You\'ll probably fall asleep together mid-movie and that\'ll be the best part.' },
+    adventurous_adventurous: { emoji:'🚀', title:'Full Send!', msg:'Both of you are wired and ready. Pick something with twists, turns, and moments that make you yell at the screen. GO!' },
+    adventurous_emotional: { emoji:'🎢', title:'Emotional Rollercoaster', msg:'One of you is here for the thrills, one for the tears — together you\'re an unstoppable reaction machine. Buckle up.' },
+    adventurous_silly: { emoji:'🎉', title:'Chaotic Energy', msg:'This watch party is going to be LOUD. Full commentary, sound effects, probably reenacting scenes. The neighbours might hear you.' },
+    adventurous_dreamy: { emoji:'🌠', title:'Into the Unknown', msg:'One is boldly going, one is gently floating. You\'ll end up somewhere beautiful neither of you expected.' },
+    emotional_emotional: { emoji:'🌊', title:'Full Feelings Mode', msg:'Nobody is okay. Everyone is crying. It\'s perfect. Hold each other through the screen tonight.' },
+    emotional_silly: { emoji:'😭😂', title:'Happy Tears', msg:'You\'ll cry, then laugh, then cry again. This is the full human experience packed into one watch party.' },
+    emotional_dreamy: { emoji:'🌸', title:'Tender & Soft', msg:'Everything feels a little sacred tonight. Take it slow, feel it all, and let the quiet moments linger.' },
+    silly_silly: { emoji:'🤣', title:'Pure Chaos', msg:'This movie has no idea what\'s about to hit it. Full commentary on every scene. Absolute disaster. 10/10.' },
+    silly_dreamy: { emoji:'✨😄', title:'Whimsical Mess', msg:'One of you is somewhere on a cloud, one of you is yelling at the screen. Somehow it\'s perfectly balanced.' },
+    dreamy_dreamy: { emoji:'🌙✨', title:'The Softest Night', msg:'You two are going to float through this movie in your own little world. Everything is gentle and glowing and just right.' },
+  };
+
+  function getResultKey(m1, m2) {
+    return [m1, m2].sort().join('_');
+  }
+
+  function selectMood(card) {
+    const mood = card.dataset.mood;
+    const p1 = document.getElementById('p1name').value.trim() || 'Tinde';
+    const p2 = document.getElementById('p2name').value.trim() || 'Nemo';
+
+    if (turn === 1) {
+      document.querySelectorAll('.mood-card').forEach(c => {
+        c.classList.remove('selected-p1');
+        if (!c.classList.contains('selected-p2')) c.classList.remove('selected-both');
+      });
+      p1Mood = mood;
+      if (p2Mood === mood) {
+        card.classList.add('selected-both');
+        card.classList.remove('selected-p1', 'selected-p2');
+      } else {
+        card.classList.add('selected-p1');
+      }
+      turn = 2;
+      showResult(p1, p2);
+    } else {
+      document.querySelectorAll('.mood-card').forEach(c => {
+        c.classList.remove('selected-p2');
+        if (c.classList.contains('selected-both')) {
+          c.classList.remove('selected-both');
+          c.classList.add('selected-p1');
+        }
+      });
+      p2Mood = mood;
+      if (p1Mood === mood) {
+        card.classList.remove('selected-p1', 'selected-p2');
+        card.classList.add('selected-both');
+      } else {
+        card.classList.add('selected-p2');
+      }
+      turn = 1;
+      showResult(p1, p2);
+    }
+  }
+
+  function showResult(p1, p2) {
+    const panel = document.getElementById('resultPanel');
+    if (!p1Mood || !p2Mood) {
+      panel.innerHTML = `<p class="waiting">${p1Mood ? p2 + ' hasn\'t picked yet... 🌸' : 'waiting for your vibes... 🌸'}</p>`;
+      return;
+    }
+    const key = getResultKey(p1Mood, p2Mood);
+    const res = results[key] || { emoji:'💫', title:'Your Unique Vibe', msg:'No label could contain what you two have. Just hit play and see where the night takes you.' };
+    panel.innerHTML = `
+      <div class="result-emoji">${res.emoji}</div>
+      <div class="result-title">${p1} & ${p2}: ${res.title}</div>
+      <div class="result-msg">${res.msg}</div>
+    `;
+  }
+</script>
 </body>
 </html>
